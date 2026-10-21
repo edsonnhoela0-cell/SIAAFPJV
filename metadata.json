@@ -1,0 +1,6 @@
+{
+  "name": "SIA | Sistema de Integração Académica",
+  "description": "SIA — Sistema de Integração Académica da Associação de Formação Profissional Jovens Valentes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
