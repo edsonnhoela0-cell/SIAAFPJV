@@ -79,8 +79,81 @@ label { display: block; font-size: 13px; font-weight: 650; margin-bottom: 7px; }
 .brand small { color: var(--cinza); }
 .nav-links { display: flex; align-items: center; gap: 20px; }
 .nav-links a { font-size: 14px; font-weight: 600; }
-.social { display: flex; align-items: center; gap: 10px; }
-.social a { color: var(--azul); font-size: 13px; font-weight: 700; }
+.social { display: flex; align-items: center; gap: 8px; }
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--azul-claro);
+  color: var(--azul);
+  font-size: 16px;
+  border: 1px solid var(--borda);
+  transition: all .2s ease;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+}
+.social-icon-btn i {
+  line-height: 1;
+  margin: 0 !important;
+}
+.social-icon-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(9, 43, 89, .15);
+}
+.social-icon-btn.facebook:hover {
+  background: #1877f2;
+  color: #ffffff;
+  border-color: #1877f2;
+}
+.social-icon-btn.whatsapp:hover {
+  background: #25d366;
+  color: #ffffff;
+  border-color: #25d366;
+}
+.social-icon-btn-lg {
+  width: 50px;
+  height: 50px;
+  font-size: 22px;
+}
+.social-icon-btn-sm {
+  width: 34px;
+  height: 34px;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.social-icon-btn-sm:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+.social-icon-btn.whatsapp-colored {
+  background: #25d366;
+  color: #ffffff;
+  border-color: #25d366;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+.social-icon-btn.whatsapp-colored:hover {
+  background: #20ba5a;
+  border-color: #20ba5a;
+  color: #ffffff;
+}
+.social-icon-btn.facebook-colored {
+  background: #1877f2;
+  color: #ffffff;
+  border-color: #1877f2;
+  box-shadow: 0 4px 14px rgba(24, 119, 242, 0.3);
+}
+.social-icon-btn.facebook-colored:hover {
+  background: #1464cc;
+  border-color: #1464cc;
+  color: #ffffff;
+}
+.footer-social { display: inline-flex; align-items: center; gap: 8px; }
 .hero {
   padding: 65px 5%;
   display: grid;
@@ -333,8 +406,8 @@ th { color: var(--cinza); background: #f8fafc; font-weight: 700; }
       <a href="#contactos">Contactos</a>
     </nav>
     <div class="social">
-      <a id="facebookLink" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=61575852942153">Facebook</a>
-      <a id="whatsappLink" target="_blank" rel="noopener noreferrer" href="#">WhatsApp</a>
+      <a id="facebookLink" class="social-icon-btn facebook" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=61575852942153" title="Facebook oficial" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a id="whatsappLink" class="social-icon-btn whatsapp" target="_blank" rel="noopener noreferrer" href="#" title="WhatsApp oficial" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
       <button class="btn btn-primary" onclick="showWelcome()">Entrar</button>
     </div>
   </header>
@@ -402,9 +475,9 @@ th { color: var(--cinza); background: #f8fafc; font-weight: 700; }
       <span class="eyebrow">FALE CONNOSCO</span>
       <h2>Estamos disponíveis para ajudar</h2>
       <p class="section-intro">Para informações sobre inscrições, cursos e requisitos, contacte a instituição através dos canais oficiais.</p>
-      <div class="hero-buttons">
-        <a class="btn btn-primary" id="contactWhatsapp" target="_blank" rel="noopener noreferrer" href="#">Contactar pelo WhatsApp</a>
-        <a class="btn btn-outline" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=61575852942153">Visitar Facebook oficial</a>
+      <div class="hero-buttons" style="display:flex;align-items:center;gap:14px">
+        <a class="social-icon-btn social-icon-btn-lg whatsapp whatsapp-colored" id="contactWhatsapp" target="_blank" rel="noopener noreferrer" href="#" title="Contactar pelo WhatsApp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a class="social-icon-btn social-icon-btn-lg facebook facebook-colored" id="contactFacebook" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=61575852942153" title="Visitar Facebook oficial" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
       </div>
     </section>
   </main>
@@ -413,6 +486,10 @@ th { color: var(--cinza); background: #f8fafc; font-weight: 700; }
     <div class="footer-inner">
       <span style="display:inline-flex;align-items:center;gap:10px"><img data-logo alt="Logótipo AFPJV" style="width:42px;height:42px;object-fit:contain;background:#fff;border-radius:8px;padding:2px">© <span id="year"></span> AFPJV — Todos os direitos reservados.</span>
       <span>SIA · Sistema de Integração Académica</span>
+      <div class="footer-social">
+        <a id="footerFacebook" class="social-icon-btn social-icon-btn-sm facebook" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=61575852942153" title="Facebook oficial" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a id="footerWhatsapp" class="social-icon-btn social-icon-btn-sm whatsapp" target="_blank" rel="noopener noreferrer" href="#" title="WhatsApp oficial" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
       <span>@258ERM</span>
     </div>
   </footer>
@@ -679,29 +756,30 @@ function setImages() {
       img.style.display = "block";
     }
   });
-  $("facebookLink").href = CONFIG.facebook;
+  if ($("facebookLink")) $("facebookLink").href = CONFIG.facebook;
+  if ($("contactFacebook")) $("contactFacebook").href = CONFIG.facebook;
+  if ($("footerFacebook")) $("footerFacebook").href = CONFIG.facebook;
   $("year").textContent = new Date().getFullYear();
 
   if (CONFIG.whatsappNumber) {
     const url = "https://wa.me/" + CONFIG.whatsappNumber +
       "?text=" + encodeURIComponent("Olá! Gostaria de obter informações sobre os cursos e as pré-inscrições da AFPJV.");
-    $("whatsappLink").href = url;
-    $("contactWhatsapp").href = url;
+    if ($("whatsappLink")) $("whatsappLink").href = url;
+    if ($("contactWhatsapp")) $("contactWhatsapp").href = url;
+    if ($("footerWhatsapp")) $("footerWhatsapp").href = url;
   } else {
-    $("whatsappLink").href = CONFIG.facebook;
-    $("contactWhatsapp").href = CONFIG.facebook;
-    $("whatsappLink").onclick = e => {
+    if ($("whatsappLink")) $("whatsappLink").href = CONFIG.facebook;
+    if ($("contactWhatsapp")) $("contactWhatsapp").href = CONFIG.facebook;
+    if ($("footerWhatsapp")) $("footerWhatsapp").href = CONFIG.facebook;
+    const whatsappHandler = e => {
       if (!CONFIG.whatsappNumber) {
         e.preventDefault();
         notify("Configure o número oficial do WhatsApp em CONFIG.whatsappNumber.");
       }
     };
-    $("contactWhatsapp").onclick = e => {
-      if (!CONFIG.whatsappNumber) {
-        e.preventDefault();
-        notify("Configure o número oficial do WhatsApp em CONFIG.whatsappNumber.");
-      }
-    };
+    if ($("whatsappLink")) $("whatsappLink").onclick = whatsappHandler;
+    if ($("contactWhatsapp")) $("contactWhatsapp").onclick = whatsappHandler;
+    if ($("footerWhatsapp")) $("footerWhatsapp").onclick = whatsappHandler;
   }
 }
 
